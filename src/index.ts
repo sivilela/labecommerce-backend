@@ -98,3 +98,5 @@ app.post("/products", (req: Request, res: Response) => {
 // console.log("\n\n");
 
 // console.table(products);
+
+
