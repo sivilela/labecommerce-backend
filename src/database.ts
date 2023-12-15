@@ -69,7 +69,7 @@ export const getAllProducts = (): TProduct[] => {
 }
 
 // getAllProducts()
-export const searchProdutcsByName = (name: string): TProduct[] => {
+export const searchProducts = (name: string): TProduct[] => {
   return products.filter((product) =>{
     return product.name.toLowerCase().includes(name.toLowerCase())
     })
