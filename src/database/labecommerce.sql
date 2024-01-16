@@ -69,6 +69,7 @@ WHERE id = 'p002';
 
   DROP TABLE products;
 
+  SELECT * FROM products
 
   CREATE TABLE purchases (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
@@ -84,6 +85,13 @@ VALUES
   ('c0011', 'u003', 100.00, '09/01/2024'),
   ('c0012', 'u004', 100.00, '09/01/2024'),
   ('c0013', 'u002', 500.00, '09/01/2024');
+
+INSERT INTO purchases (id, buyer, total_price, created_at)
+VALUES
+  ('c0001', 'u002', 100.00, '09/01/2024'),
+  ('c0002', 'u003', 100.00, '09/01/2024'),
+  ('c0003', 'u004', 100.00, '09/01/2024'),
+  ('c0004', 'u002', 500.00, '09/01/2024');
 
   DROP TABLE purchases
 
@@ -118,3 +126,32 @@ FROM
     purchases
     INNER JOIN users on purchases.buyer = users.id;
 
+-- RELAÇÕES SQL II
+
+-- EXERCÍCIO 1
+
+CREATE TABLE purchases_products (
+    purchase_id TEXT NOT NULL,
+    product_id TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+    FOREIGN KEY (purchase_id) REFERENCES purchases(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
+
+DROP TABLE purchases_products;
+
+-- EXERCÍCIO 2
+
+INSERT INTO purchases_products (purchase_id, product_id, quantity)
+VALUES
+    ('pur001', 'p001', 3),
+    ('pur002', 'p002', 5),
+    ('pur002', 'p003', 7);
+
+SELECT * FROM purchases_products
+INNER JOIN purchases
+ON purchases_products.purchase_id = purchases.id
+INNER JOIN products
+ON purchases_products.product_id = products.id;
