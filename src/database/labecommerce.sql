@@ -1,11 +1,15 @@
 -- Active: 1702853169182@@127.0.0.1@3306
-CREATE TABLE users (
+CREATE TABLE 
+  IF NOT EXISTS users (
   id TEXT PRIMARY KEY UNIQUE NOT NULL,
   name TEXT NOT NULL,
   email TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
   created_at TEXT NOT NULL
 );
+PRAGMA table_info('users');
+
+SELECT * FROM users
 
 INSERT INTO users (id, name, email, password, created_at)
 VALUES 
@@ -21,6 +25,8 @@ CREATE TABLE products (
   description TEXT NOT NULL,
   image_url TEXT NOT NULL
 );
+
+PRAGMA table_info('products');
 
 INSERT INTO products (id, name, price, description, image_url)
 VALUES
