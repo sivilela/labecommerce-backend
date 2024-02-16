@@ -87,23 +87,16 @@ WHERE id = 'p002';
 
 INSERT INTO purchases (id, buyer, total_price, created_at)
 VALUES
-  ('c0010', 'u002', 100.00, '09/01/2024'),
-  ('c0011', 'u003', 100.00, '09/01/2024'),
-  ('c0012', 'u004', 100.00, '09/01/2024'),
-  ('c0013', 'u002', 500.00, '09/01/2024');
-
-INSERT INTO purchases (id, buyer, total_price, created_at)
-VALUES
-  ('c0001', 'u002', 100.00, '09/01/2024'),
-  ('c0002', 'u003', 100.00, '09/01/2024'),
-  ('c0003', 'u004', 100.00, '09/01/2024'),
-  ('c0004', 'u002', 500.00, '09/01/2024');
+  ('pur002', 'u002', 100.00, CURRENT_TIMESTAMP),
+  ('pur005', 'u003', 100.00, CURRENT_TIMESTAMP),
+  ('pur006', 'u004', 100.00, CURRENT_TIMESTAMP),
+  ('pur007', 'u002', 500.00, CURRENT_TIMESTAMP);
 
   DROP TABLE purchases
 
   INSERT INTO purchases (id, buyer, total_price, created_at)
 VALUES
-  ('c002', 'u001', 100.00, '09/01/2024');
+  ('c002', 'u001', 100.00, CURRENT_TIMESTAMP);
  
 
   SELECT * FROM purchases
